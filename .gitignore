@@ -1,5 +1,209 @@
-.kiro
-.vscode
+# ===========================================
+# 文件系统项目 .gitignore
+# ===========================================
+
+# IDE和编辑器
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+*.iml
+*.ipr
+*.iws
+
+# 操作系统生成的文件
 .DS_Store
-*/.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# 临时文件和缓存
+*.tmp
+*.temp
+*.cache
+*.log
+*.pid
+*.seed
+*.pid.lock
+.npm
+.yarn-integrity
+.yarn-error.log
+.pnpm-debug.log*
+
+# 编译输出和构建产物
+/dist/
+/build/
+/out/
+/target/
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+*.zip
+*.tar.gz
+*.rar
+
+# 依赖目录
+node_modules/
+bower_components/
+jspm_packages/
+.pnp
+.pnp.js
+
+# 环境配置文件
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*.local
+config.local.js
+config.local.json
+
+# 数据库文件
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.db-wal
+*.db-shm
+
+# 日志文件
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# 运行时数据
+pids/
+*.pid
+*.seed
+*.pid.lock
+lib-cov/
+coverage/
+.nyc_output/
+.grunt/
+.lock-wscript
+
+# 测试覆盖率报告
+coverage/
+*.lcov
+.nyc_output/
+.coverage/
+htmlcov/
+.tox/
+.nox/
+.coverage
+.pytest_cache/
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# 文档生成
+docs/_build/
+.sphinx/
+site/
+
+# 包管理器
+.npm
+.eslintcache
+.stylelintcache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# 可选的npm缓存目录
+.npm
+
+# 可选的eslint缓存
+.eslintcache
+
+# 微服务和容器相关
+.dockerignore
+docker-compose.override.yml
+.docker/
+
+# 云服务和部署
+.serverless/
+.fusebox/
+.dynamodb/
+.tern-port
+.vscode-test
+
+# 备份文件
+*.bak
+*.backup
+*.old
+*.orig
+*~
+
+# 压缩文件
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# 媒体文件（如果不需要版本控制）
+# *.jpg
+# *.jpeg
+# *.png
+# *.gif
+# *.mp4
+# *.avi
+# *.mov
+
+# 大文件和二进制文件
+*.exe
+*.dll
+*.so
+*.dylib
+
+# 用户上传的文件
+uploads/
+user-files/
+attachments/
+
+# 系统生成的缩略图
+.thumbnails/
+thumbs/
+
+# 搜索索引
+.search_index/
+elasticsearch/
+solr/
+
+# 监控和分析
+.monitoring/
+.analytics/
+
+# 本地开发工具
+.local/
+.dev/
+.development/
+
+# Kiro相关（如果不需要版本控制）
+.kiro/
+
+# 项目特定的忽略规则
+# 在这里添加你的项目特定文件和目录
 
