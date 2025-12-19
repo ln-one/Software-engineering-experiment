@@ -1,57 +1,55 @@
-@startuml 智慧城市综合交通管理与服务平台架构图
+@startuml
 
-skinparam defaultFontName Microsoft YaHei
-skinparam defaultFontSize 12
+top to bottom direction
+skinparam defaultFontName SimHei
+skinparam defaultFontSize 10
+skinparam backgroundColor #FFFFFF
+skinparam shadowing false
+skinparam nodesep 10
+skinparam ranksep 30
 
-salt
-{+
-{* <b>智慧城市综合交通管理与服务平台</b> }
---
-{#
-<b>用户层</b> | 交通管理员 | 交通执法人员 | 系统运维员 | 市民用户 | 决策管理层 | . | .
+skinparam rectangle {
+    BackgroundColor #FFFFFF
+    BorderColor #000000
 }
-==
-{#
-<b>展示层</b> | . | . | Web平台（PC端/响应式） | . | 移动APP | 微信公众号 | 大屏展示
+
+skinparam package {
+    BackgroundColor #F0F0F0
+    BorderColor #333333
 }
-==
-{#
-. | {#
-<b>前 台 展 示</b>
---
-交通数据查询 | 实时路况 | 流量统计 | 历史查询 | 趋势分析 | 数据导出 | . | .
---
-信息发布 | 路况播报 | 交通预警 | 施工公告 | 出行建议 | . | . | .
---
-便民服务 | 违章查询 | 费用缴纳 | 工单提交 | 进度查询 | . | . | .
+
+title 系统组成和接口关系图
+
+package "智慧城市综合交通管理与服务平台" {
+    together {
+        rectangle "用户管理" as M1
+        rectangle "交通数据管理" as M2
+        rectangle "设备管理" as M3
+        rectangle "信息发布" as M4
+        rectangle "工单管理" as M5
+        rectangle "支付管理" as M6
+    }
+    together {
+        rectangle "系统日志" as M7
+        rectangle "报表统计" as M8
+        rectangle "系统配置" as M9
+        rectangle "系统监控" as M10
+    }
 }
+
+together {
+    rectangle "城市交通信号控制系统" as E1
+    rectangle "公安交管综合应用平台" as E2
+    rectangle "城市应急指挥系统" as E3
+    rectangle "智慧停车管理系统" as E4
+    rectangle "公共交通调度系统" as E5
 }
---
-{#
-<b>应用层</b> | {#
-<b>后 台 管 理</b>
---
-用户管理 | 添加 | 修改 | 删除 | 查询 | 角色管理 | 添加 | 修改 | 删除 | 查询
---
-设备管理 | 设备注册 | 状态监控 | 故障处理 | 维护管理 | 系统设置与维护 | 系统配置 | 数据备份与恢复 | 系统日志 | .
---
-工单管理 | 工单创建 | 工单分派 | 工单处理 | 工单跟踪 | 报表统计 | 数据报表 | 趋势分析 | 绩效评估 | 决策支持
---
-支付管理 | 费用计算 | 在线支付 | 退款处理 | 财务对账 | . | . | . | . | .
-}
-}
-==
-{#
-<b>基础服务</b> | 安全保障 | 日志记录 | 接口与集成功能服务 | 通知与提醒服务 | 报告与数据分析服务 | . | .
-}
-==
-{#
-<b>数据中台</b> | . | . | 关系型数据库（MySQL/PostgreSQL） | 缓存数据库（Redis） | 时序数据库（InfluxDB） | 搜索引擎（ES） | .
-}
-==
-{#
-<b>外部系统</b> | 城市交通信号控制系统 | 公安交管综合应用平台 | 城市应急指挥系统 | 智慧停车管理系统 | 支付平台 | 地图服务 | .
-}
-}
+
+M2 -down-> E1 : 流量数据
+M3 -down-> E1 : 设备控制
+M2 -down-> E2 : 违章数据
+M4 -down-> E3 : 事件上报
+M6 -down-> E4 : 费用结算
+M2 -down-> E5 : 公交数据
 
 @enduml
