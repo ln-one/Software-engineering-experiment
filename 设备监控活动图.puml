@@ -1,0 +1,40 @@
+@startuml 设备状态监控活动图
+
+' 设置样式
+skinparam defaultFontName Microsoft YaHei
+skinparam defaultFontSize 12
+skinparam backgroundColor #FFFFFF
+
+skinparam activity {
+    BackgroundColor #FFFFFF
+    BorderColor #000000
+    ArrowColor #000000
+}
+
+title 图3：设备状态监控用例的活动图
+
+start
+
+:开始监控;
+
+repeat
+    :采集设备状态数据;
+    
+    :分析状态数据;
+    
+    if (状态正常?) then (是)
+        :更新状态显示;
+        :记录状态日志;
+    else (否)
+        :生成设备告警;
+        :发送告警通知;
+        :记录故障信息;
+    endif
+    
+repeat while (继续监控?) is (是)
+
+:结束监控;
+
+stop
+
+@enduml

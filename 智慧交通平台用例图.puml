@@ -1,0 +1,90 @@
+@startuml 智慧城市综合交通管理与服务平台用例图
+
+' 设置样式
+skinparam defaultFontName Microsoft YaHei
+skinparam defaultFontSize 12
+skinparam backgroundColor #FFFFFF
+skinparam handwritten false
+
+skinparam usecase {
+    BackgroundColor #FFFFFF
+    BorderColor #000000
+    ArrowColor #000000
+}
+
+skinparam actor {
+    BackgroundColor #FFFFFF
+    BorderColor #000000
+}
+
+' 左侧参与者
+actor "交通管理员" as Admin
+actor "交通执法人员" as Officer
+actor "系统运维员" as Operator
+actor "市民用户" as Citizen
+actor "决策管理层" as Manager
+
+' 右侧外部系统
+actor "公安交管平台" as PoliceSystem
+actor "支付平台" as PaymentSystem
+
+' 用例定义
+usecase "用户登录" as UC_Login
+usecase "交通数据录入" as UC_DataEntry
+usecase "交通数据查询" as UC_DataQuery
+usecase "数据统计分析" as UC_DataAnalysis
+usecase "设备状态监控" as UC_DeviceMonitor
+usecase "设备故障处理" as UC_DeviceFault
+usecase "信息发布管理" as UC_InfoPublish
+usecase "工单创建" as UC_TicketCreate
+usecase "工单处理" as UC_TicketProcess
+usecase "违章信息查询" as UC_ViolationQuery
+usecase "费用缴纳" as UC_Payment
+usecase "系统监控" as UC_SysMonitor
+usecase "日志管理" as UC_LogManage
+usecase "报表生成" as UC_Report
+usecase "数据同步" as UC_DataSync
+
+' 交通管理员的用例关系
+Admin --> UC_Login
+Admin --> UC_DataEntry
+Admin --> UC_DataQuery
+Admin --> UC_DataAnalysis
+Admin --> UC_DeviceMonitor
+Admin --> UC_InfoPublish
+Admin --> UC_TicketProcess
+
+' 交通执法人员的用例关系
+Officer --> UC_Login
+Officer --> UC_DataEntry
+Officer --> UC_TicketCreate
+Officer --> UC_ViolationQuery
+
+' 系统运维员的用例关系
+Operator --> UC_Login
+Operator --> UC_DeviceMonitor
+Operator --> UC_DeviceFault
+Operator --> UC_SysMonitor
+Operator --> UC_LogManage
+
+' 市民用户的用例关系
+Citizen --> UC_Login
+Citizen --> UC_DataQuery
+Citizen --> UC_ViolationQuery
+Citizen --> UC_Payment
+Citizen --> UC_TicketCreate
+
+' 决策管理层的用例关系
+Manager --> UC_Login
+Manager --> UC_DataAnalysis
+Manager --> UC_Report
+
+' 外部系统的用例关系
+UC_ViolationQuery --> PoliceSystem
+UC_DataSync --> PoliceSystem
+UC_Payment --> PaymentSystem
+
+' 标题
+title 图1：智慧城市综合交通管理与服务平台系统用例模型图
+
+@enduml

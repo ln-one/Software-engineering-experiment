@@ -1,0 +1,41 @@
+@startuml 用户登录活动图
+
+' 设置样式
+skinparam defaultFontName Microsoft YaHei
+skinparam defaultFontSize 12
+skinparam backgroundColor #FFFFFF
+
+skinparam activity {
+    BackgroundColor #FFFFFF
+    BorderColor #000000
+    ArrowColor #000000
+}
+
+title 图2：用户登录用例的活动图
+
+start
+
+:显示登录界面;
+
+:用户输入用户名和密码;
+
+:验证用户凭据;
+
+if (凭据有效?) then (是)
+    :加载用户权限信息;
+    :跳转到主界面;
+else (否)
+    if (登录失败次数 < 3?) then (是)
+        :显示错误信息;
+        note right: 用户可重新输入
+        :返回登录界面;
+        stop
+    else (否)
+        :锁定账户30分钟;
+        :显示账户锁定信息;
+    endif
+endif
+
+stop
+
+@enduml
